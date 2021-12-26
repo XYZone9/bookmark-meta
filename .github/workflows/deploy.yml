@@ -18,7 +18,7 @@ jobs:
             - name: Build and Deploy
               uses: JamesIves/github-pages-deploy-action@4.1.8
               with:
-                ssh-key: ${{ secrets.ACCESS_TOKEN }}
+                token: ${{ secrets.ACCESS_TOKEN }}
                 branch: release
                 folder: build
 
