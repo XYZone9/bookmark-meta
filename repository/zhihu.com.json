@@ -1,0 +1,16 @@
+{
+    "name": "知乎",
+    "descrption": "",
+    "schema": {
+        "init": [
+            [
+                "button[aria-label=关闭]",
+                "click"
+            ]
+        ],
+        "tid": "h1.Post-Title",
+        "aid": "#Popover10-toggle>.UserLink-link",
+        "pid": ".ContentItem-time",
+        "did": "article .Post-RichTextContainer"
+    }
+}
