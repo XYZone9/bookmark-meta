@@ -17,12 +17,27 @@ const repository = fs.readdirSync(REPOSITORY_ROOT);
 console.info('repository:', repository);
 
 const menifestRepo = repository.reduce((obj, key) => {
-    obj[key.replace(/\.json$/ig, '')] = `${raw_root}/${REPOSITORY_NAME}/${key}`;
+    const jsonText = fs.readFileSync(path.join(REPOSITORY_ROOT, key), 'utf-8');
+    const json = JSON.parse(jsonText);
+    console.info('json:', json);
+    obj[key.replace(/\.json$/ig, '')] = {
+        name: json.name,
+        descrption: json.descrption,
+        url: `${raw_root}/${REPOSITORY_NAME}/${key}`,
+    };
     return obj;
 }, {});
 
-cp.execSync(`cp -R ${REPOSITORY_ROOT} ${path.join(BUILD_ROOT, REPOSITORY_NAME)}`);
+const REPOSITORY_DIST = path.join(BUILD_ROOT, REPOSITORY_NAME);
+if (fs.existsSync(REPOSITORY_DIST)) {
+    cp.execSync(`rm -rf ${REPOSITORY_DIST}`);
+}
 
+cp.execSync(`cp -R ${REPOSITORY_ROOT} ${REPOSITORY_DIST}`);
+
+if (fs.existsSync(MANIFEST_FILE)) {
+    cp.execSync(`rm -f ${MANIFEST_FILE}`);
+}
 fs.writeFileSync(MANIFEST_FILE, JSON.stringify({
     version: pkgInfo.version,
     repository: menifestRepo,
