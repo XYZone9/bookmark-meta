@@ -1,0 +1,10 @@
+{
+    "name": "微信公众平台",
+    "descrption": "微信公众平台，给个人、企业和组织提供业务服务与用户管理能力的全新服务平台。",
+    "schema": {
+        "tid": "#activity-name",
+        "aid": "#js_name",
+        "pid": "#publish_time",
+        "did": "#js_content"
+    }
+}

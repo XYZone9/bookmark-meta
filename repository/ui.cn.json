@@ -1,0 +1,10 @@
+{
+    "name": "UICN用户体验设计平台",
+    "descrption": "UI中国用户体验平台,中国用户体验联盟理事单位。国内极具影响力的设计平台之一。十多年来,携手会员150万+,共同致力于为设计师与企业搭建健康的设计生态！",
+    "schema": {
+        "tid": ".new_detail .work_name_pos",
+        "aid": "#p-author",
+        "pid": "p.time",
+        "did": "body .work_main"
+    }
+}
