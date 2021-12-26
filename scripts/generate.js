@@ -16,24 +16,27 @@ const repository = fs.readdirSync(REPOSITORY_ROOT);
 
 console.info('repository:', repository);
 
-const menifestRepo = repository.reduce((obj, key) => {
-    const jsonText = fs.readFileSync(path.join(REPOSITORY_ROOT, key), 'utf-8');
-    const json = JSON.parse(jsonText);
-    console.info('json:', json);
-    obj[key.replace(/\.json$/ig, '')] = {
-        name: json.name,
-        descrption: json.descrption,
-        url: `${raw_root}/${REPOSITORY_NAME}/${key}`,
-    };
-    return obj;
-}, {});
-
 const REPOSITORY_DIST = path.join(BUILD_ROOT, REPOSITORY_NAME);
 if (fs.existsSync(REPOSITORY_DIST)) {
     cp.execSync(`rm -rf ${REPOSITORY_DIST}`);
 }
 
 cp.execSync(`cp -R ${REPOSITORY_ROOT} ${REPOSITORY_DIST}`);
+
+const menifestRepo = repository.reduce((obj, key) => {
+    const jsonText = fs.readFileSync(path.join(REPOSITORY_DIST, key), 'utf-8');
+    const json = JSON.parse(jsonText);
+    const host = key.replace(/\.json$/ig, '');
+    json.host = host;
+    console.info('json:', json);
+    fs.writeFileSync(path.join(REPOSITORY_DIST, key), JSON.stringify(json), 'utf-8')
+    obj[host] = {
+        name: json.name,
+        descrption: json.descrption,
+        url: `${raw_root}/${REPOSITORY_NAME}/${key}`,
+    };
+    return obj;
+}, {});
 
 if (fs.existsSync(MANIFEST_FILE)) {
     cp.execSync(`rm -f ${MANIFEST_FILE}`);
