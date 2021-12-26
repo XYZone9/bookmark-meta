@@ -1,13 +1,1 @@
-{
-    "name": "站酷",
-    "descrption": "",
-    "schema": {
-        "tid": "#dataInput[data-title]",
-        "aid": "#dataInput[data-author-name]",
-        "pid": "#dataInput[data-publish-time]",
-        "did": [
-            "body .work-details-content",
-            "body .work-details-left"
-        ]
-    }
-}
+{"name":"站酷","descrption":"","schema":{"tid":"#dataInput[data-title]","aid":"#dataInput[data-author-name]","pid":"#dataInput[data-publish-time]","did":["body .work-details-content","body .work-details-left"]},"host":"zcool.com.cn"}
