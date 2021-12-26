@@ -1,0 +1,24 @@
+{
+  "name": "bookmark-meta",
+  "version": "1.0.0",
+  "description": "临时市场",
+  "scripts": {
+    "generate": "node scripts/generate.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harepo/bookmark-meta.git"
+  },
+  "author": {
+    "name": "Zyao89",
+    "email": "zyao89@gmail.com"
+  },
+  "license": "Apache-2.0 License",
+  "bugs": {
+    "url": "https://github.com/harepo/bookmark-meta/issues"
+  },
+  "homepage": "https://github.com/harepo/bookmark-meta#readme",
+  "raw_root": "https://raw.githubusercontent.com/harepo/bookmark-meta/release",
+  "dependencies": {}
+}
