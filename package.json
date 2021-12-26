@@ -4,6 +4,7 @@
   "description": "临时市场",
   "scripts": {
     "generate": "node scripts/generate.js",
+    "build": "npm run generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
