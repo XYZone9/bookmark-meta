@@ -9,7 +9,7 @@
             ],
             [
                 "img[onerror]",
-                "remove"
+                "$el:remove"
             ]
         ],
         "tid": "h1#articleContentId.title-article",
