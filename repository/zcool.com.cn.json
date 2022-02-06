@@ -1,5 +1,6 @@
 {
     "name": "站酷",
+    "type": "parser",
     "descrption": "",
     "schema": {
         "tid": "#dataInput[data-title]",

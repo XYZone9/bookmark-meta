@@ -1,5 +1,6 @@
 {
     "name": "学UI网",
+    "type": "parser",
     "descrption": "学UI网，UI学习教程网站—UI设计师学习教程平台",
     "schema": {
         "tid": "h1.article-title > a",

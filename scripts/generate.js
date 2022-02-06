@@ -23,6 +23,8 @@ if (fs.existsSync(REPOSITORY_DIST)) {
 
 cp.execSync(`cp -R ${REPOSITORY_ROOT} ${REPOSITORY_DIST}`);
 
+const KEYS = ['name', 'descrption', 'type'];
+
 const menifestRepo = repository.reduce((obj, key) => {
     const jsonText = fs.readFileSync(path.join(REPOSITORY_DIST, key), 'utf-8');
     const json = JSON.parse(jsonText);
@@ -31,8 +33,12 @@ const menifestRepo = repository.reduce((obj, key) => {
     console.info('json:', json);
     fs.writeFileSync(path.join(REPOSITORY_DIST, key), JSON.stringify(json), 'utf-8')
     obj[host] = {
-        name: json.name,
-        descrption: json.descrption,
+        ...KEYS.reduce((obj, k) => {
+            obj[k] = json[k];
+            return obj;
+        }, {}),
+        // name: json.name,
+        // descrption: json.descrption,
         url: `${raw_root}/${REPOSITORY_NAME}/${key}`,
     };
     return obj;

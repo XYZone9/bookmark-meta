@@ -1,5 +1,6 @@
 {
     "name": "知乎",
+    "type": "parser",
     "descrption": "",
     "schema": {
         "init": [
