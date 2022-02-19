@@ -28,7 +28,7 @@ const KEYS = ['name', 'descrption', 'type'];
 const menifestRepo = repository.reduce((obj, key) => {
     const jsonText = fs.readFileSync(path.join(REPOSITORY_DIST, key), 'utf-8');
     const json = JSON.parse(jsonText);
-    const host = key.replace(/\.json$/ig, '');
+    const host = json.host || key.replace(/\.json$/ig, '');
     json.host = host;
     console.info('json:', json);
     fs.writeFileSync(path.join(REPOSITORY_DIST, key), JSON.stringify(json), 'utf-8')
