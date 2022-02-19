@@ -1,0 +1,11 @@
+{
+    "name": "Behance 图片",
+    "version": "0.0.1",
+    "type": "picture",
+    "descrption": "Behance is the world's largest creative network for showcasing and discovering creative work",
+    "schema": {
+        "replace": [
+            "\\/project_modules\\/\\w+", "/project_modules/fs"
+        ]
+    }
+}
