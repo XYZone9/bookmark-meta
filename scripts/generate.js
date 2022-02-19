@@ -23,7 +23,7 @@ if (fs.existsSync(REPOSITORY_DIST)) {
 
 cp.execSync(`cp -R ${REPOSITORY_ROOT} ${REPOSITORY_DIST}`);
 
-const KEYS = ['name', 'descrption', 'type'];
+const KEYS = ['name', 'descrption', 'type', 'version'];
 
 const menifestRepo = repository.reduce((obj, key) => {
     const jsonText = fs.readFileSync(path.join(REPOSITORY_DIST, key), 'utf-8');
