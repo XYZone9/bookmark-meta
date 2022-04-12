@@ -1,0 +1,1 @@
+{"name":"开发者头条（同微信公众号）","version":"0.0.1","type":"website","descrption":"开发者头条，程序员必装的App。使用开发者头条App，程序员可以阅读头条新闻、分享技术文章、发布开源项目，订阅技术极客/技术团队开通的独家号/团队号和关注编程牛人。","schema":{"tid":"#activity-name","aid":"#js_name","pid":"#publish_time","did":"#js_content"},"host":"toutiao.io"}
