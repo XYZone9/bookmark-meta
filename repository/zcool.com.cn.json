@@ -26,6 +26,8 @@
         "aid": "#dataInput[data-author-name]",
         "pid": "#dataInput[data-publish-time]",
         "did": [
+            "body .detailContentBox",
+            "body .main-wrapper",
             "body .work-details-content",
             "body .work-details-left"
         ]
