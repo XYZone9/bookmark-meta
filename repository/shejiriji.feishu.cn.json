@@ -1,1 +1,1 @@
-{"name":"飞书文档","version":"0.0.1","type":"website","descrption":"飞书文档 - 多人实时在线编辑，促进团队深度协作与互动","schema":{"emulate":"iPad","scrollSelector":".etherpad-container-wrapper","tid":".note-title p.note-title__input","did":"body #doc-container"},"host":"shejiriji.feishu.cn"}
+{"name":"飞书文档","version":"0.0.1","type":"website","descrption":"飞书文档 - 多人实时在线编辑，促进团队深度协作与互动","schema":{"emulate":"iPad","scrollSelector":".etherpad-container-wrapper,.bear-web-x-container","tid":".note-title p.note-title__input","did":"body #doc-container"},"host":"shejiriji.feishu.cn"}
