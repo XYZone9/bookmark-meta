@@ -1,0 +1,23 @@
+{
+    "name": "人人都是产品经理 | 产品经理、产品爱好者学习交流平台",
+    "version": "0.0.1",
+    "type": "website",
+    "descrption": "人人都是产品经理致力为产品新人、产品经理等广大产品爱好者打造一个良好的学习交流平台。深度剖析国内外互联网业内动态，分享产品设计、交互设计、视觉设计、用户体验设计、产品运营、产品市场和项目管理等专业产品知识。",
+    "schema": {
+        "init": [
+            [
+                "a[data-action=overlay-close]",
+                "click"
+            ],
+            [
+                ".overlay",
+                "$el:remove"
+            ]
+        ],
+        "tid": "h2.article--title",
+        "aid": ".author a",
+        "pid": ".author~.meta--sup>time",
+        "did": []
+    }
+}
+
