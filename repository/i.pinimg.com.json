@@ -1,11 +1,11 @@
 {
     "name": "Pinterest 图片",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "type": "picture",
     "descrption": "发现想要尝试的食谱、家居创意、时尚灵感及其他创意点子。",
     "schema": {
         "replace": [
-            "pinimg.com\\/\\w+", "pinimg.com/originals"
+            [ "pinimg.com\\/\\w+", "pinimg.com/originals" ]
         ]
     }
 }
