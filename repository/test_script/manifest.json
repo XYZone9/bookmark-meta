@@ -1,0 +1,21 @@
+{
+    "name": "脚本测试",
+    "version": "0.0.1",
+    "type": "script",
+    "descrption": "这是一个测试脚本，只会进行打印",
+    "dependencies": [],
+    "schema": {
+        "layouts": [
+            {
+                "key": "name",
+                "alias": "测试名称",
+                "type": "input",
+                "placeholder": "请输入测试脚本流程名称",
+                "rules": [
+                    "Required"
+                ]
+            }   
+        ]
+    },
+    "script": ""
+}

@@ -3,7 +3,7 @@ console.info('generate...');
 const pkgInfo = require('../package.json');
 const raw_root = pkgInfo.raw_root;
 
-const fs = require('fs');
+const fs = require('fs-extra');
 const cp = require('child_process');
 const path = require('path');
 
@@ -17,23 +17,34 @@ const repository = fs.readdirSync(REPOSITORY_ROOT);
 console.info('repository:', repository);
 
 const REPOSITORY_DIST = path.join(BUILD_ROOT, REPOSITORY_NAME);
-if (fs.existsSync(REPOSITORY_DIST)) {
-    cp.execSync(`rm -rf ${REPOSITORY_DIST}`);
+if (fs.existsSync(REPOSITORY_DIST)) { // 清空
+    fs.removeSync(REPOSITORY_DIST);
 }
+fs.ensureDirSync(REPOSITORY_DIST);
 
-cp.execSync(`cp -R ${REPOSITORY_ROOT} ${REPOSITORY_DIST}`);
+// cp.execSync(`cp -R ${REPOSITORY_ROOT} ${REPOSITORY_DIST}`); // 全量复制
 
-const KEYS = ['name', 'descrption', 'type', 'version'];
+const MENIFEST_KEYS = ['name', 'descrption', 'type', 'version'];
 
 const menifestRepo = repository.reduce((obj, key) => {
-    const jsonText = fs.readFileSync(path.join(REPOSITORY_DIST, key), 'utf-8');
-    const json = JSON.parse(jsonText);
+    const originalFilepath = path.join(REPOSITORY_ROOT, key);
+    let json = null;
+    let distFilepath = path.join(REPOSITORY_DIST, key); // dist
+    if (fs.statSync(originalFilepath).isDirectory()) { // script
+        distFilepath = path.join(REPOSITORY_DIST, `${key}.json`); // dist
+        const scriptManifest = path.join(originalFilepath, 'manifest.json');
+        json = fs.readJSONSync(scriptManifest);
+        const scriptFilepath = path.join(originalFilepath, 'index.js');
+        json.script = fs.readFileSync(scriptFilepath, 'utf-8'); // 脚本赋值
+    } else {
+        json = fs.readJSONSync(originalFilepath);
+    }
     const host = json.host || key.replace(/\.json$/ig, '');
     json.host = host;
     console.info('json:', json);
-    fs.writeFileSync(path.join(REPOSITORY_DIST, key), JSON.stringify(json), 'utf-8')
+    fs.writeFileSync(distFilepath, JSON.stringify(json), 'utf-8')
     obj[host] = {
-        ...KEYS.reduce((obj, k) => {
+        ...MENIFEST_KEYS.reduce((obj, k) => {
             obj[k] = json[k];
             return obj;
         }, {}),
@@ -45,7 +56,7 @@ const menifestRepo = repository.reduce((obj, key) => {
 }, {});
 
 if (fs.existsSync(MANIFEST_FILE)) {
-    cp.execSync(`rm -f ${MANIFEST_FILE}`);
+    fs.removeSync(MANIFEST_FILE);
 }
 fs.writeFileSync(MANIFEST_FILE, JSON.stringify({
     version: pkgInfo.version,
