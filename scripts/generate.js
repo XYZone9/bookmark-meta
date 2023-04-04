@@ -29,9 +29,8 @@ const MENIFEST_KEYS = ['name', 'descrption', 'type', 'version'];
 const menifestRepo = repository.reduce((obj, key) => {
     const originalFilepath = path.join(REPOSITORY_ROOT, key);
     let json = null;
-    let distFilepath = path.join(REPOSITORY_DIST, key); // dist
     if (fs.statSync(originalFilepath).isDirectory()) { // script
-        distFilepath = path.join(REPOSITORY_DIST, `${key}.json`); // dist
+        key = `${key}.json`; // fixed key
         const scriptManifest = path.join(originalFilepath, 'manifest.json');
         json = fs.readJSONSync(scriptManifest);
         const scriptFilepath = path.join(originalFilepath, 'index.js');
@@ -39,6 +38,7 @@ const menifestRepo = repository.reduce((obj, key) => {
     } else {
         json = fs.readJSONSync(originalFilepath);
     }
+    const distFilepath = path.join(REPOSITORY_DIST, key); // dist
     const host = json.host || key.replace(/\.json$/ig, '');
     json.host = host;
     console.info('json:', json);
