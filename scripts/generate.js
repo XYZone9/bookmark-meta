@@ -24,7 +24,7 @@ fs.ensureDirSync(REPOSITORY_DIST);
 
 // cp.execSync(`cp -R ${REPOSITORY_ROOT} ${REPOSITORY_DIST}`); // 全量复制
 
-const MENIFEST_KEYS = ['name', 'descrption', 'type', 'version'];
+const MENIFEST_KEYS = ['name', 'description', 'type', 'version'];
 
 const menifestRepo = repository.reduce((obj, key) => {
     const originalFilepath = path.join(REPOSITORY_ROOT, key);
@@ -50,7 +50,7 @@ const menifestRepo = repository.reduce((obj, key) => {
             return obj;
         }, {}),
         // name: json.name,
-        // descrption: json.descrption,
+        // description: json.description,
         url: `${raw_root}/${REPOSITORY_NAME}/${key}`,
     };
     return obj;

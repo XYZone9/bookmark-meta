@@ -2,7 +2,7 @@
     "name": "学UI网",
     "version": "0.0.2",
     "type": "website",
-    "descrption": "学UI网，UI学习教程网站—UI设计师学习教程平台",
+    "description": "学UI网，UI学习教程网站—UI设计师学习教程平台",
     "schema": {
         "tid": "h1.article-title > a",
         "aid": ".meta>.muted>a",
