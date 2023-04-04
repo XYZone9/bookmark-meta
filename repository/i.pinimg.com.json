@@ -1,1 +1,1 @@
-{"name":"Pinterest 图片","version":"0.0.2","type":"picture","descrption":"发现想要尝试的食谱、家居创意、时尚灵感及其他创意点子。","schema":{"replace":[["pinimg.com\\/\\w+","pinimg.com/originals"]]},"host":"i.pinimg.com"}
+{"name":"Pinterest 图片","version":"0.0.2","type":"picture","description":"发现想要尝试的食谱、家居创意、时尚灵感及其他创意点子。","schema":{"replace":[["pinimg.com\\/\\w+","pinimg.com/originals"]]},"host":"i.pinimg.com"}

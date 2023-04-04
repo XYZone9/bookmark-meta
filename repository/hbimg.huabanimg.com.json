@@ -1,1 +1,1 @@
-{"name":"花瓣图片","version":"0.0.1","type":"picture","descrption":"最新采集_灵感图片大全_花瓣网","schema":{"match":["(.*)_"]},"host":"hbimg.huabanimg.com"}
+{"name":"花瓣图片","version":"0.0.1","type":"picture","description":"最新采集_灵感图片大全_花瓣网","schema":{"match":["(.*)_"]},"host":"hbimg.huabanimg.com"}
