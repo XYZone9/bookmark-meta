@@ -23,5 +23,8 @@
   "raw_root": "https://raw.githubusercontent.com/harepo/bookmark-meta/release",
   "dependencies": {
     "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.12"
   }
 }

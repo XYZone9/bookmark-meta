@@ -1,6 +1,6 @@
 {
     "name": "脚本测试",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "type": "script",
     "description": "这是一个测试脚本，只会进行打印",
     "schema": {
