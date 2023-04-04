@@ -1,10 +1,17 @@
 
-console.info('test:', $$.name);
+const params = $$.params;
+
+console.info('test name:', params.name);
+
+const cheerio = require('cheerio');
 
 const request = require('request');
 request('https://www.baidu.com', function (error, response, body) {
-    console.error(error);
+    if (error) {
+        console.error(error);
+    }
     if (!error && response.statusCode == 200) {
-        console.log(body); // Show the HTML for the Google homepage.
+        const $ = cheerio.load(body);
+        console.log('title:', $('title').text()); // Show the HTML for the Google homepage.
     }
 });
