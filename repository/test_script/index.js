@@ -1,5 +1,5 @@
 
-console.info('test:', 123);
+console.info('test:', $$.name);
 
 const request = require('request');
 request('https://www.baidu.com', function (error, response, body) {
