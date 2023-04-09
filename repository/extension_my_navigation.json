@@ -1,1 +1,1 @@
-{"name":"🧭 我的导航中心","version":"0.0.1","type":"extension","description":"展示我的导航中心.","schema":{"actions":["setAtomsUrl",["/navigation",{"minHeight":"520px"}]]},"host":"extension_my_navigation"}
+{"name":"🧭 我的导航中心","version":"0.0.1","type":"extension","description":"展示我的导航中心.","schema":{"actions":["setAtomsUrl",["/navigation",{"minHeight":"520px"}]],"result":{"actions":[],"close":false}},"host":"extension_my_navigation"}
