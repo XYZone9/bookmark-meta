@@ -8,7 +8,11 @@
             "setAtomsUrl", [ "/navigation", {
                 "minHeight": "520px"
             }]
-        ]
+        ],
+        "result": {
+            "actions": [],
+            "close": false
+        }
     }
 }
 
