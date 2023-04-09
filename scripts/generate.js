@@ -29,13 +29,15 @@ const MENIFEST_KEYS = ['name', 'description', 'type', 'version'];
 const menifestRepo = repository.reduce((obj, key) => {
     const originalFilepath = path.join(REPOSITORY_ROOT, key);
     let json = null;
-    if (fs.statSync(originalFilepath).isDirectory()) { // script
+    if (fs.statSync(originalFilepath).isDirectory()) {
         key = `${key}.json`; // fixed key
         const scriptManifest = path.join(originalFilepath, 'manifest.json');
         json = fs.readJSONSync(scriptManifest);
         const scriptFilepath = path.join(originalFilepath, 'index.js');
-        json.schema = json.schema || {};
-        json.schema.script = fs.readFileSync(scriptFilepath, 'utf-8'); // 脚本赋值
+        if ( fs.existsSync(scriptFilepath)) { // for script
+            json.schema = json.schema || {};
+            json.schema.script = fs.readFileSync(scriptFilepath, 'utf-8'); // 脚本赋值
+        }
     } else {
         json = fs.readJSONSync(originalFilepath);
     }
