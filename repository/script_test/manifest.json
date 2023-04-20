@@ -1,6 +1,6 @@
 {
     "name": "脚本测试",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "type": "script",
     "description": "这是一个测试脚本，只会进行打印",
     "schema": {
@@ -13,7 +13,14 @@
                 "rules": [
                     "Required"
                 ]
-            }   
+            },
+            {
+                "key": "openDebugLogger",
+                "alias": "测试开关",
+                "type": "switch",
+                "help": "打开将展示测试日志",
+                "placeholder": "是否开启测试日志"
+            }
         ],
         "dependencies": [],
         "script": ""
